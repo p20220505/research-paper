@@ -1,29 +1,66 @@
-\input{config}
+% =========================
+% Main LaTeX File
+% =========================
 
-\documentclass[\ifthenelse{\equal{\venue}{emnlp}}{11pt}{conference}]{\ifthenelse{\equal{\venue}{emnlp}}{article}{IEEEtran}}
+% --------- Venue Selection ---------
+\newcommand{\venue}{emnlp} % Change to 'icse' as needed
 
-\usepackage{graphicx, amsmath, hyperref}
-\begin{document}
+% --------- Document Class ---------
+\ifx\venue\undefined
+  \documentclass[11pt]{article}
+\else
+  \ifx\venue\emnlp
+    \documentclass[11pt]{acl}
+  \else
+    \documentclass[conference]{IEEEtran}
+    \IEEEoverridecommandlockouts
+    \IEEEpubid{\makebox[\columnwidth]{978-1-6654-XXXX-X/25/\$31.00~\copyright~2025 IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{ }}
+  \fi
+\fi
 
+% --------- Packages ---------
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% --------- Title & Author ---------
 \title{AI Localization in CI/CD Pipelines: A Scalable Framework for Real-Time Multilingual Deployment}
-\author{...} % Add your name or anonymize for EMNLP
 
+\author{
+  Neeraj Kumar Sharma \\
+  \texttt{neeraj@example.com}
+}
+
+\date{August 26, 2025}
+
+% --------- Begin Document ---------
+\begin{document}
 \maketitle
 
+% --------- Sections ---------
 \input{sections/abstract}
 \input{sections/introduction}
-\ifthenelse{\equal{\venue}{emnlp}}{
-  \input{sections/related_emnlp}
-}{
-  \input{sections/related_icse}
-}
 \input{sections/methodology}
+\input{sections/evaluation}
 \input{sections/results}
 \input{sections/discussion}
+\input{sections/related_emnlp}  % For EMNLP-specific related work
+\input{sections/related_icse}   % For ICSE-specific related work
 \input{sections/conclusion}
 \input{sections/acknowledgment}
 
-\bibliographystyle{\ifthenelse{\equal{\venue}{emnlp}}{acl_natbib}{IEEEtran}}
-\bibliography{bib/references_\venue}
+% --------- Bibliography ---------
+\ifx\venue\emnlp
+  \bibliographystyle{acl_natbib}
+\else
+  \bibliographystyle{IEEEtran}
+\fi
+\bibliography{bib/references}
 
-\end{document} 
+\end{document}
