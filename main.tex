@@ -1,0 +1,29 @@
+\input{config}
+
+\documentclass[\ifthenelse{\equal{\venue}{emnlp}}{11pt}{conference}]{\ifthenelse{\equal{\venue}{emnlp}}{article}{IEEEtran}}
+
+\usepackage{graphicx, amsmath, hyperref}
+\begin{document}
+
+\title{AI Localization in CI/CD Pipelines: A Scalable Framework for Real-Time Multilingual Deployment}
+\author{...} % Add your name or anonymize for EMNLP
+
+\maketitle
+
+\input{sections/abstract}
+\input{sections/introduction}
+\ifthenelse{\equal{\venue}{emnlp}}{
+  \input{sections/related_emnlp}
+}{
+  \input{sections/related_icse}
+}
+\input{sections/methodology}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+\input{sections/acknowledgment}
+
+\bibliographystyle{\ifthenelse{\equal{\venue}{emnlp}}{acl_natbib}{IEEEtran}}
+\bibliography{bib/references_\venue}
+
+\end{document} 
