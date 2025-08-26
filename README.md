@@ -20,3 +20,6 @@ pdflatex main.tex
 
 ## 🤝 Contributions
 We welcome student and collaborator contributions. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting pull requests.
+
+## 🧭 Code of Conduct
+Please read our [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) to understand the standards expected in this collaborative research project.
